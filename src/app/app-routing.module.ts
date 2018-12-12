@@ -1,7 +1,12 @@
+import { AboutPageComponent } from './components/about-page/about-page.component';
+import { BookListComponent } from './components/book-list/book-list.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-const routes: Routes = [];
+const routes: Routes = [
+  {path: 'home', component: BookListComponent},
+  {path: 'about', component: AboutPageComponent}
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
