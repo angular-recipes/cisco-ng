@@ -2,7 +2,9 @@
 
 ## How to run
 
-`cd bookscart`
+`cd cisco-ng`
+
 `npm install`
+
 `ng serve`
 
