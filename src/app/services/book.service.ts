@@ -24,13 +24,13 @@ export class BookService {
     return this.books.find(b => b.id == bookId);
   }
 
-  rateUp(i) {
-    if (this.books[i].rating < 5)
-      this.books[i].rating++;
+  rateUp(book: Book) {
+    if (book.rating < 5)
+      book.rating++;
   }
 
-  rateDown(i) {
-    if (this.books[i].rating > 1)
-      this.books[i].rating--;
+  rateDown(book: Book) {
+    if (book.rating > 1)
+      book.rating--;
   }
 }

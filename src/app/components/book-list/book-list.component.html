@@ -1,5 +1,5 @@
 <div 
-  *ngFor="let book of books; let i = index" 
+  *ngFor="let book of books" 
   [class.high]="book.rating>3"
 >
   <div *ngIf="book.rating > 1">
@@ -7,8 +7,9 @@
     <div class="author">{{book.author}}</div>
     <div>{{book.price}}</div>
     <div>{{book.rating}}</div>
-    <button (click)="rateUp(i)">+</button>
-    <button (click)="rateDown(i)">-</button>
+    <button (click)="rateUp(book)">+</button>
+    <button (click)="rateDown(book)">-</button>
+    <button (click)="addToCart(book)">@</button>
     <hr />
   </div>
 </div>

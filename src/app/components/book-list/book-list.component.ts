@@ -1,3 +1,4 @@
+import { CartService } from './../../services/cart.service';
 import { BookService } from './../../services/book.service';
 import { Component, OnInit } from '@angular/core';
 import { Book } from '../../models/book';
@@ -9,22 +10,27 @@ import { Book } from '../../models/book';
 })
 export class BookListComponent implements OnInit {
   books: Book[];
-  bs: BookService;
 
-  constructor(bookService: BookService) {
-    this.bs = bookService;
+  constructor(
+    private bookService: BookService,
+    private cartService: CartService  
+  ) {
   }
 
   ngOnInit() {
-    this.books = this.bs.getBooks();
+    this.books = this.bookService.getBooks();
   }
 
-  rateUp(i: number) {
-    this.bs.rateUp(i);
+  rateUp(book: Book) {
+    this.bookService.rateUp(book);
   }
 
-  rateDown(i: number) {
-    this.bs.rateDown(i);
+  rateDown(book: Book) {
+    this.bookService.rateDown(book);
+  }
+
+  addToCart(book: Book) {
+    this.cartService.addToCart(book);
   }
 
 }
