@@ -7,7 +7,7 @@ import { Book } from '../../models/book';
   styleUrls: ['./book-list.component.css']
 })
 export class BookListComponent implements OnInit {
-  books : Book[];
+  books: Book[];
 
   constructor() { }
 
@@ -18,6 +18,16 @@ export class BookListComponent implements OnInit {
       new Book('The monk who sold his ferrari', 'Robin Sharma', 19, 3),
       new Book('4 hour work week', 'Tim Ferris', 34, 5)
     ];
+  }
+
+  rateUp(i: number) {
+    if (this.books[i].rating < 5)
+      this.books[i].rating++;
+  }
+
+  rateDown(i: number) {
+    if (this.books[i].rating > 1)
+      this.books[i].rating--;
   }
 
 }
