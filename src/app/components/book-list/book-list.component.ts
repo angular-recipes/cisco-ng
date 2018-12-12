@@ -1,3 +1,4 @@
+import { BookService } from './../../services/book.service';
 import { Component, OnInit } from '@angular/core';
 import { Book } from '../../models/book';
 
@@ -8,26 +9,22 @@ import { Book } from '../../models/book';
 })
 export class BookListComponent implements OnInit {
   books: Book[];
+  bs: BookService;
 
-  constructor() { }
+  constructor(bookService: BookService) {
+    this.bs = bookService;
+  }
 
   ngOnInit() {
-    this.books = [
-      new Book('The Alchemist', 'Paulo Cohelo', 23, 4),
-      new Book('Five point someone', 'Chetan Bhagat', 12, 2),
-      new Book('The monk who sold his ferrari', 'Robin Sharma', 19, 3),
-      new Book('4 hour work week', 'Tim Ferris', 34, 5)
-    ];
+    this.books = this.bs.getBooks();
   }
 
   rateUp(i: number) {
-    if (this.books[i].rating < 5)
-      this.books[i].rating++;
+    this.bs.rateUp(i);
   }
 
   rateDown(i: number) {
-    if (this.books[i].rating > 1)
-      this.books[i].rating--;
+    this.bs.rateDown(i);
   }
 
 }

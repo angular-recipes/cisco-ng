@@ -1,13 +1,15 @@
 export class Book {
-    title : string;
+    id: number;
+    title: string;
     author: string;
     price: number;
     rating: number;
 
-    constructor(title, author, price, rating) {
-         this.title = title;
-         this.author = author;
-         this.price = price;
-         this.rating = rating;
+    constructor(id, title, author, price, rating) {
+        this.id = id;
+        this.title = title;
+        this.author = author;
+        this.price = price;
+        this.rating = rating;
     }
 }
