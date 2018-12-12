@@ -1,0 +1,10 @@
+.title {
+    color: brown;
+    font-weight: bold;
+}
+.author {
+    font-style: italic;
+}
+.high {
+    background-color: bisque;
+}
