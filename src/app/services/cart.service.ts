@@ -10,7 +10,7 @@ export class CartService {
   private cart: Cart;
   
   constructor() { 
-    this.cart = new Cart([], 0);
+    this.cart = new Cart();
   }
 
   getCart() {
@@ -28,5 +28,10 @@ export class CartService {
     }
 
     this.cart.totalPrice += book.price;
+    this.cart.totalItems++;
+  }
+
+  getTotalCartItems() : number {
+    return this.cart.items.reduce( (res, i) => res + i.qty, 0);
   }
 }

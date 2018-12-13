@@ -3,9 +3,11 @@ import { Item } from './item';
 export class Cart {
     items: Item[];
     totalPrice: number;
+    totalItems: number; 
 
-    constructor(items, totalPrice) {
-        this.items = items;
-        this.totalPrice = totalPrice;
+    constructor() {
+        this.items = [];
+        this.totalPrice = 0;
+        this.totalItems = 0;
     }
 }
