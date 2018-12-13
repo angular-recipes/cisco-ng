@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { BookService } from './../../services/book.service';
 import { Book } from './../../models/book';
 import { Component, OnInit } from '@angular/core';
@@ -8,31 +9,42 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./add-book-form.component.css']
 })
 export class AddBookFormComponent implements OnInit {
-
-  constructor(private bookService: BookService) { }
+  newBook: Book;
+  constructor(
+    private bookService: BookService,
+    private router: Router  
+  ) { }
 
   ngOnInit() {
+    this.newBook = new Book(null, null, null, null);
   }
 
-  addBook(
-    title: HTMLInputElement,
-    author: HTMLInputElement,
-    price: HTMLInputElement,
-    rating: HTMLInputElement
-  ) {
-    let book = new Book(
-      title.value,
-      author.value,
-      price.value,
-      +rating.value
-    );
+  addBook() {
+    this.newBook.price = +this.newBook.price;
+    this.newBook.rating = +this.newBook.rating;
+    this.bookService.addBook(this.newBook);
+    this.router.navigate(['/home']);
+  }
 
-    this.bookService.addBook(book);
+  // addBook(
+  //   title: HTMLInputElement,
+  //   author: HTMLInputElement,
+  //   price: HTMLInputElement,
+  //   rating: HTMLInputElement
+  // ) {
+  //   let book = new Book(
+  //     title.value,
+  //     author.value,
+  //     +price.value,
+  //     +rating.value
+  //   );
+
+  //   this.bookService.addBook(book);
     
-    title.value = '';
-    author.value = '';
-    price.value = '';
-    rating.value = '';
-  }
+  //   title.value = '';
+  //   author.value = '';
+  //   price.value = '';
+  //   rating.value = '';
+  // }
 
 }
