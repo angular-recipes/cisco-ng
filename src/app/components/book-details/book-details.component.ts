@@ -20,7 +20,9 @@ export class BookDetailsComponent implements OnInit {
 
   ngOnInit() {
     let bookId = +this.route.snapshot.paramMap.get('bookId');
-    this.book = this.bookService.getBook(bookId);
+    this.bookService
+      .getBook(bookId)
+      .subscribe(res => this.book = res.json());
   }
 
   goToHome() {

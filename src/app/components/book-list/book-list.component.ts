@@ -2,6 +2,7 @@ import { CartService } from './../../services/cart.service';
 import { BookService } from './../../services/book.service';
 import { Component, OnInit } from '@angular/core';
 import { Book } from '../../models/book';
+import { Http } from '@angular/http';
 
 @Component({
   selector: 'app-book-list',
@@ -14,21 +15,25 @@ export class BookListComponent implements OnInit {
 
   constructor(
     private bookService: BookService,
-    private cartService: CartService  
+    private cartService: CartService,
+    private http: Http
   ) {
   }
 
   ngOnInit() {
-    this.books = this.bookService.getBooks();
+    this.bookService
+      .getBooks()
+      .subscribe(res => this.books = res.json());
+
     this.today = new Date();
   }
 
   rateUp(book: Book) {
-    this.bookService.rateUp(book);
+    this.bookService.rateUp(book).subscribe();
   }
 
   rateDown(book: Book) {
-    this.bookService.rateDown(book);
+    this.bookService.rateDown(book).subscribe();
   }
 
   addToCart(book: Book) {

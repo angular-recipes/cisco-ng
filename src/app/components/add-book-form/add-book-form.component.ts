@@ -22,8 +22,9 @@ export class AddBookFormComponent implements OnInit {
   addBook() {
     this.newBook.price = +this.newBook.price;
     this.newBook.rating = +this.newBook.rating;
-    this.bookService.addBook(this.newBook);
-    this.router.navigate(['/home']);
+    this.bookService
+      .addBook(this.newBook)
+      .subscribe( res => this.router.navigate(['/home']));
   }
 
   // addBook(
