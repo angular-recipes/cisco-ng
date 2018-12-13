@@ -2,7 +2,7 @@
   *ngFor="let book of books" 
   [class.high]="book.rating>3"
 >
-  <div *ngIf="book.rating > 1">
+  <!-- <div *ngIf="book.rating > 1"> -->
     <a class="title" routerLink="/book-details/{{book.id}}">{{book.title}}</a>
     <div class="author">{{book.author}}</div>
     <div>{{book.price}}</div>
@@ -11,5 +11,5 @@
     <button (click)="rateDown(book)">-</button>
     <button (click)="addToCart(book)">@</button>
     <hr />
-  </div>
+  <!-- </div> -->
 </div>
