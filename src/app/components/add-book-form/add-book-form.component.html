@@ -1,7 +1,10 @@
-<form (ngSubmit)="addBook()" #addBookForm="ngForm">
+<form (ngSubmit)="addBook()" #addBookForm="ngForm" highRatedHasHighPrice>
+    <div class="error" *ngIf="addBookForm.errors?.highRatedHasHighPrice">
+      High rated has to have high price
+    </div>
   <div>
     <label>Title</label>
-    <input name="title" type="text" [(ngModel)]="newBook.title" #title="ngModel" required minlength="4" />
+    <input name="title" type="text" [(ngModel)]="newBook.title" #title="ngModel" required minlength="4" titlecase/>
   </div>
   <div *ngIf="title.invalid && (title.touched || title.dirty)">
     <div class="error" *ngIf="title.errors.required">
@@ -9,6 +12,9 @@
     </div>
     <div class="error" *ngIf="title.errors.minlength">
       Min 4 characters
+    </div>
+    <div class="error" *ngIf="title.errors.titlecase">
+      Not proper titlecase
     </div>
   </div>
   <div>
