@@ -10,6 +10,7 @@ import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.
 import { AddBookFormComponent } from './components/add-book-form/add-book-form.component';
 import { TitlecaseDirective } from './directives/titlecase.directive';
 import { HighRatedHasHighPriceDirective } from './directives/high-rated-has-high-price.directive';
+import { LastNameFirstPipe } from './pipes/last-name-first.pipe';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { HighRatedHasHighPriceDirective } from './directives/high-rated-has-high
     ShoppingCartComponent,
     AddBookFormComponent,
     TitlecaseDirective,
-    HighRatedHasHighPriceDirective
+    HighRatedHasHighPriceDirective,
+    LastNameFirstPipe
   ],
   imports: [
     BrowserModule,

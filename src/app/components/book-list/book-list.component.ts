@@ -10,6 +10,7 @@ import { Book } from '../../models/book';
 })
 export class BookListComponent implements OnInit {
   books: Book[];
+  today: Date;
 
   constructor(
     private bookService: BookService,
@@ -19,6 +20,7 @@ export class BookListComponent implements OnInit {
 
   ngOnInit() {
     this.books = this.bookService.getBooks();
+    this.today = new Date();
   }
 
   rateUp(book: Book) {

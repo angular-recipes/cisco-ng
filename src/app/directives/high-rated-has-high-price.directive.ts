@@ -21,7 +21,7 @@ export class HighRatedHasHighPriceDirective implements Validator {
       let price = +priceControl.value;
       let rating = +ratingControl.value;
       if (price > 50 && rating < 4) {
-        return { highRatedHasHighPrice: true }
+        return { highRatedHasHighPrice: true };
       }
     }
 

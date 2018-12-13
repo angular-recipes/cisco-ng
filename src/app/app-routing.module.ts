@@ -11,7 +11,8 @@ const routes: Routes = [
   {path: "about", component: AboutPageComponent},
   {path: "book-details/:bookId", component: BookDetailsComponent},
   {path: "cart", component: ShoppingCartComponent},
-  {path: "add-book", component: AddBookFormComponent}
+  {path: "add-book", component: AddBookFormComponent},
+  {path: '', redirectTo: '/home', pathMatch: 'full'}
 ];
 
 @NgModule({
