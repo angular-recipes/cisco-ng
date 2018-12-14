@@ -3,6 +3,14 @@ import { BookService } from './../../services/book.service';
 import { Component, OnInit } from '@angular/core';
 import { Book } from '../../models/book';
 import { Http } from '@angular/http';
+import {
+  trigger,
+  state,
+  style,
+  animate,
+  transition,
+  // ...
+} from '@angular/animations';
 
 @Component({
   selector: 'app-book-list',

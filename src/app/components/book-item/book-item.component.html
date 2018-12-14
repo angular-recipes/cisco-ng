@@ -1,0 +1,10 @@
+<div [@bgChange]="book.rating > 3 ? 'high' : 'low'">
+<a class="title" routerLink="/book-details/{{book.id}}">{{book.title}}</a>
+<div class="author">{{book.author | lastNameFirst:'. ' }}</div>
+<div>{{book.price | currency:'INR':true:'3.2-4' }}</div>
+<div>{{book.rating}}</div>
+<button (click)="handleRateUpBtnClick()">+</button>
+<button (click)="handleRateDownBtnClick()">-</button>
+<button (click)="handleAddToCartBtnClick()">@</button>
+<hr />
+</div>

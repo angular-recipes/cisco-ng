@@ -12,20 +12,20 @@
       "title": "Power of Now",
       "author": "Eckhart Tolle",
       "price": 12,
-      "rating": 4
+      "rating": 2
     },
     {
       "id": 3,
       "title": "Monk who sold his ferrari",
       "author": "Robin Sharma",
       "price": 14,
-      "rating": 2
+      "rating": 3
     },
     {
       "title": "White Tiger",
       "author": "Arvind Adiga",
       "price": 23,
-      "rating": 5,
+      "rating": 2,
       "id": 4
     },
     {

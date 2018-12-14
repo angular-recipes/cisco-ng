@@ -1,3 +1,4 @@
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -12,6 +13,7 @@ import { AddBookFormComponent } from './components/add-book-form/add-book-form.c
 import { TitlecaseDirective } from './directives/titlecase.directive';
 import { HighRatedHasHighPriceDirective } from './directives/high-rated-has-high-price.directive';
 import { LastNameFirstPipe } from './pipes/last-name-first.pipe';
+import { BookItemComponent } from './components/book-item/book-item.component';
 
 @NgModule({
   declarations: [
@@ -23,13 +25,15 @@ import { LastNameFirstPipe } from './pipes/last-name-first.pipe';
     AddBookFormComponent,
     TitlecaseDirective,
     HighRatedHasHighPriceDirective,
-    LastNameFirstPipe
+    LastNameFirstPipe,
+    BookItemComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

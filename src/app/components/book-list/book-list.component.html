@@ -1,18 +1,16 @@
 {{today | date:'short'}}
 <!-- {{ 34.5 | number:'3.2-3'}}
 {{ 'someText' | slice:3:6 }} -->
-<div 
+<div
   *ngFor="let book of books" 
-  [class.high]="book.rating>3"
 >
   <!-- <div *ngIf="book.rating > 1"> -->
-    <a class="title" routerLink="/book-details/{{book.id}}">{{book.title}}</a>
-    <div class="author">{{book.author | lastNameFirst:'. ' }}</div>
-    <div>{{book.price | currency:'INR':true:'3.2-4' }}</div>
-    <div>{{book.rating}}</div>
-    <button (click)="rateUp(book)">+</button>
-    <button (click)="rateDown(book)">-</button>
-    <button (click)="addToCart(book)">@</button>
-    <hr />
+    <app-book-item 
+      [book]="book"
+      (rateUpBtnClick)="rateUp($event)"
+      (rateDownBtnClick)="rateDown($event)"
+      (addToCartBtnClick)="addToCart($event)"
+    >
+    </app-book-item>
   <!-- </div> -->
 </div>
